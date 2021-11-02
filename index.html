@@ -11,7 +11,30 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <body>
-    <main></main>
+    <main id="root">
+        <div class="container">
+            <h1 class="my-4 text-center">TodoList</h1>
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <div class="my-3 mb-5">
+                        <div class="input-group">
+                            <input placeholder="Vorrei..."  class="form-control" v-model='newTask'>
+                            <button type="button" id="button-addon1" class="btn btn-outline-primary" @click="onAddClick">Aggiungi</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- lista -->
+                <div class="list-group">
+                    <!-- elemento singolo -->
+                    <div class="list-group-item d-flex align-items-center py-3" v-for="element in taskToDo">
+                        <div class="list-group-item-border"></div>
+                        <label class="flex-fill">Da fare {{element}}</label>
+                        <button type="button" aria-label="Close" class="btn-close"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
     <script src="js/script.js"></script>
 </body>
 </html>

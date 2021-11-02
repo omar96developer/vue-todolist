@@ -5,10 +5,7 @@ var app = new Vue(
         el: '#root',
         data: {
             newTask: "",
-            taskToDo: [
-                'fare',
-                'banca'
-            ]
+            taskToDo: []
         },
         methods: {
             onAddClick(){
@@ -23,7 +20,11 @@ var app = new Vue(
                 if(sameTask) {
                     return;
                 }
-                this.taskToDo.push(this.newTask);
+                this.taskToDo.push(this.newTask.trim());
+                this.newTask = "";
+            },
+            onDeleteClick(iEliminate){
+                this.taskToDo.splice(iEliminate, 1);
             }
         }
     }
